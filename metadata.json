@@ -1,12 +1,19 @@
 {
   "name": "ceritsc-dkms",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "author": "ceritsc",
   "summary": "Manage DKMS tools and modules",
   "license": "MIT",
   "source": "https://github.com/CERIT-SC/puppet-dkms.git",
   "project_page": "https://github.com/CERIT-SC/puppet-dkms",
   "issues_url": "https://github.com/CERIT-SC/puppet-dkms/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.0.0"
+    }
+  ],
+  "data_provider": null,
   "tags": [
     "dkms"
   ],
@@ -61,8 +68,5 @@
       "name": "puppet",
       "version_requirement": ">= 3.4.0 < 4.0.0"
     }
-  ],
-  "dependencies": [
-    {"name":"puppetlabs/stdlib","version_requirement":">= 4.0.0"}
   ]
 }
