@@ -1,18 +1,14 @@
-class dkms::install (
-  $packages,
-  $packages_devel,
-  $apt_release
-) {
-  if ($::osfamily == 'Debian') and $apt_release {
-    $_opts = {'-t' => $apt_release}
+class dkms::install {
+  if ($::osfamily == 'Debian') and ! empty($::dkms::apt_release) {
+    $_opts = {'-t' => $::dkms::apt_release}
   } else {
     $_opts = {}
   }
 
-  ensure_packages($packages_devel)
+  ensure_packages($::dkms::packages_devel)
 
-  ensure_packages($packages, {
+  ensure_packages($::dkms::packages, {
     'install_options' => $_opts,
-    'require'         => Package[$packages_devel],
+    'require'         => Package[$::dkms::packages_devel],
   })
 }

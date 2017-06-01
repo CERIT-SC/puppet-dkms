@@ -1,13 +1,13 @@
 class dkms::params {
-  $apt_release = ''
+  $apt_release = undef
 
   case $::operatingsystem {
-    redhat,centos,scientific,oraclelinux: {
+    'RedHat','CentOS','Scientific','OracleLinux': {
       $packages = ['dkms']
       $packages_devel = ['kernel-devel']
     }
 
-    debian,ubuntu: {
+    'Debian','Ubuntu': {
       $packages = ['dkms']
       $packages_devel = ["linux-headers-${::architecture}"]
     }

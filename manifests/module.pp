@@ -5,10 +5,10 @@ define dkms::module (
   $kernel  = $::kernelrelease,
   $timeout = 600,
 ) {
-  require dkms
+  require ::dkms
 
   Exec {
-    path  => '/bin:/usr/bin:/sbin:/usr/sbin',
+    path => '/bin:/usr/bin:/sbin:/usr/sbin',
   }
 
   $_common = "-m ${module} -v ${version}"

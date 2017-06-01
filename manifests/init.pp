@@ -5,13 +5,6 @@ class dkms (
 ) inherits dkms::params {
 
   validate_array($packages, $packages_devel)
-  validate_string($apt_release)
 
-  class { 'dkms::install':
-    packages       => $packages,
-    packages_devel => $packages_devel,
-    apt_release    => $apt_release,
-  }
-
-  contain dkms::install
+  contain ::dkms::install
 }
